@@ -18,7 +18,8 @@ namespace Week1
 
         void Start()
         {
-            PrintMonths();
+
+            Console.WriteLine(AskMonth("Voer maand in: "));
             Console.WriteLine(_question1);
             int n = ReadInt(_question1);
             Console.WriteLine("Je hebt {0} ingetikt.", n);
@@ -71,18 +72,20 @@ namespace Week1
             }
         }
 
-        private Months AskMonth(string question)
+        private Months? AskMonth(string question)
         {
-            Console.WriteLine("Voer maand nummer in: ");
+            Console.WriteLine(question);
             int num = int.Parse(Console.ReadLine());
             Months m = (Months)Enum.Parse(typeof(Months), num.ToString());
-            if (num > 0 && num < 13)
+            if (Enum.IsDefined(typeof(Months), num) == true)
             {
                 return m;
             }
             else
             {
-                throw num;
+                Console.WriteLine("Invalide maand  {0}", num);
+
+                return null;
             }
         }
     }
