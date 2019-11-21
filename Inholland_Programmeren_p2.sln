@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.645
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Opdracht1", "Week1\Opdracht1.csproj", "{697065CB-98D3-4D79-8805-5F7C0DE39443}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Week1Opdracht1", "Week1\Week1Opdracht1.csproj", "{697065CB-98D3-4D79-8805-5F7C0DE39443}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Opdracht2", "Opdracht2\Opdracht2.csproj", "{6E2ED1A7-D17D-400F-99A3-A102E7372051}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Week1Opdracht2", "Opdracht2\Week1Opdracht2.csproj", "{6E2ED1A7-D17D-400F-99A3-A102E7372051}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Opdracht3", "Opdracht3\Opdracht3.csproj", "{2EE09FCA-872B-4EE0-80B0-EBEB5F2F8814}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Week1Opdracht3", "Opdracht3\Week1Opdracht3.csproj", "{2EE09FCA-872B-4EE0-80B0-EBEB5F2F8814}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Week2Opdracht1", "Week2Opdracht1\Week2Opdracht1.csproj", "{044510F3-4232-4C3E-9A91-A35A370C39B7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{2EE09FCA-872B-4EE0-80B0-EBEB5F2F8814}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2EE09FCA-872B-4EE0-80B0-EBEB5F2F8814}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EE09FCA-872B-4EE0-80B0-EBEB5F2F8814}.Release|Any CPU.Build.0 = Release|Any CPU
+		{044510F3-4232-4C3E-9A91-A35A370C39B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{044510F3-4232-4C3E-9A91-A35A370C39B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{044510F3-4232-4C3E-9A91-A35A370C39B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{044510F3-4232-4C3E-9A91-A35A370C39B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
