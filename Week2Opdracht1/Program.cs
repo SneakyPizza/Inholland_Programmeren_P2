@@ -25,7 +25,7 @@ namespace Week2Opdracht1
             _col = int.Parse(Console.ReadLine());
             Console.WriteLine("Amount of Rows");
             _row = int.Parse(Console.ReadLine());
-            _matrix = new int[_col, _row];
+            _matrix = new int[_row, _col];
             InitMatrix(_matrix);
             PrintMatrix(_matrix);
             Console.ReadKey();
@@ -33,21 +33,21 @@ namespace Week2Opdracht1
 
         private void InitMatrix(int[,] matrix)
         {
-            int value = 1;
-            for (int r = 1; r < matrix.GetLength(0); r++)
+            int num = 1;
+            for (int r = 0; r < matrix.GetLength(0); r++)
             {
-                for (int c = 1; c < matrix.GetLength(1); c++)
+                for (int c = 0; c < matrix.GetLength(1); c++)
                 {
-                    matrix[r, c] = r * c + 1;
+                    matrix[r, c] = num++;
                 }
             }
         }
 
         private void PrintMatrix(int[,] matrix)
         {
-            for(int r = 1; r < matrix.GetLength(0); r++)
+            for(int r = 0; r < matrix.GetLength(0); r++)
             {
-                for(int c = 1; c < matrix.GetLength(1); c++)
+                for(int c = 0; c < matrix.GetLength(1); c++)
                 {
                     Console.Write(matrix[r, c] + "\t");
                 }
