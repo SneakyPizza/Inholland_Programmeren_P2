@@ -68,13 +68,6 @@ namespace Week3Opdracht1
             }
         }
 
-        //
-
-        private void PrintPraticalGrade (PraticalGrade grade)
-        {
-            Console.WriteLine();
-        }
-
         Profession ReadProfession(string question_name, string question_grade, string question_pgrade)
         {
             Profession p = new Profession();
@@ -87,11 +80,6 @@ namespace Week3Opdracht1
             Console.WriteLine(question_pgrade);
             p.pgrade = (PraticalGrade)int.Parse(Console.ReadLine());
             return p;
-        }
-
-        private void PrintProfession(Profession prof)
-        {
-           
         }
     }
 }
