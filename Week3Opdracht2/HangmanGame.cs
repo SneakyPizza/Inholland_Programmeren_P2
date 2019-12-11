@@ -8,16 +8,105 @@ namespace Week3Opdracht2
 {
     public class HangmanGame
     {
-        private string _secretWord;
-        public string _guessedWord;
+        private List<string> _wordList = new List<string> { "test", "eetlepel", "programmeren" };
+        public string guessedWord = "";
+        private string _secretword;
+        public List<char> filledLetters = new List<char>();
 
         public void Init(string secretword)
         {
+            ShowWord(secretword);
             Console.WriteLine("Raad het woord: ");
+            _secretword = secretword;
             foreach (char c in secretword)
             {
                 Console.Write(".");
             }
+        }
+
+        public bool PlayHangmanGame(HangmanGame game)
+        {
+            int tries = 8;
+
+            ShowWord(guessedWord);
+            do
+            {
+                char c = game.ReadChar(filledLetters);
+                filledLetters.Add(c);
+                if (!game.CheckChar(c))
+                {
+                    tries -= 1;
+                }
+                game.ShowFilledChar(filledLetters);
+                game.ShowWord(game.guessedWord);
+                Console.WriteLine("Aantal pogingen: " + tries);
+            } while (!game.GuessedWord() && tries != 0);
+            return game.GuessedWord();
+        }
+
+        public string RndWord(List<string> list)
+        {
+            Random r = new Random();
+            int i = r.Next(0, list.Count);
+            return list[i];
+        }
+
+        public void ShowWord(string word)
+        {
+            Console.WriteLine("Het geheime woord is: ");
+            foreach (char c in word)
+            {
+                Console.Write(c + " ");
+            }
+            Console.WriteLine();
+        }
+
+        public bool CheckChar(char c)
+        {
+            bool b = false;
+            char[] chararr = guessedWord.ToCharArray();
+
+            for(int i = 1; i < _secretword.Length; i++)
+            {
+                if(_secretword[i] == c)
+                {
+                    b = true;
+                    chararr[i] = c;
+                }
+            }
+            guessedWord = new string(chararr);
+            return b;
+        }
+
+        public bool GuessedWord()
+        {
+            if(_secretword == guessedWord)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public char ReadChar(List<char> bannedchars)
+        {
+            char c;
+            do
+            {
+                Console.WriteLine("Geef letter: ");
+                c = char.Parse(Console.ReadLine());
+
+            } while (bannedchars.Contains(c));
+            return c;
+        }
+
+        public void ShowFilledChar(List<char> filledchars)
+        {
+            string s = " ";
+            foreach (char c in filledchars)
+            {
+                    s += (c + " ");
+            }
+            Console.WriteLine("Ingevoerde characters: " + s);
         }
     }
 }
