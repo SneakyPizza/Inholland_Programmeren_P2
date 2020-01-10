@@ -22,9 +22,17 @@ namespace Week4Opdracht1
 
         private void Start()
         {
-            Person p = ReadPerson(_name_question, _age_question, _place_question);
-            ShowPerson(p);
-            WritePerson(p.name + ".txt", _path, p);
+            if (InitQuestion("Druk 'w' voor het maken van een persoon, en 'r' om er 1 uit te lezen."))
+            {
+                Person p = ReadPerson(_name_question, _age_question, _place_question);
+                ShowPerson(p);
+                WritePerson(p.name + ".txt", _path, p);
+            } else
+            {
+                Console.WriteLine("Voer naam van de te lezen persoon in.");
+                Person p = ReadPersonFile(Console.ReadLine());
+                ShowPerson(p);
+            }
             Console.ReadKey();
         }
 
@@ -53,25 +61,52 @@ namespace Week4Opdracht1
         {
             try
             {
-                if(!File.Exists(path + filename))
+                if (!File.Exists(path + filename))
                 {
-                    StreamWriter sw = new StreamWriter(path + filename);
+                    StreamWriter sw = new StreamWriter(path + filename + ".txt");
                     sw.WriteLine(p.name);
                     sw.WriteLine(p.age);
                     sw.WriteLine(p.place);
                     sw.Close();
-                } else
+                }
+                else
                 {
                     Console.WriteLine("Person already exists");
                 }
-
-            } catch(Exception e)
-            {
-                Console.WriteLine(e.ToString());
-            } finally
-            {
-                
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private Person ReadPersonFile(string filename)
+        {
+            Person p = new Person();
+            try
+            {
+
+                StreamReader sr = new StreamReader(@"..\\..\\" + filename + ".txt");
+                p.name = sr.ReadLine();
+                int.TryParse(sr.ReadLine(), out p.age);
+                p.place = sr.ReadLine();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return p;
+        }
+
+        private bool InitQuestion(string question)
+        {
+            Console.WriteLine(question);
+            string input = Console.ReadLine();
+            if(input == "w")
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

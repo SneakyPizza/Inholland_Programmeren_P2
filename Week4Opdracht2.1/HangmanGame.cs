@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
-namespace Week3Opdracht2
+namespace Week4Opdracht2._1
 {
     public class HangmanGame
     {
-        private List<string> _wordList = new List<string> { "test", "eetlepel", "programmeren" };
+        //private List<string> _wordList = new List<string> { "test", "eetlepel", "programmeren" };
         public string guessedWord = "";
         private string _secretword;
         public List<char> filledLetters = new List<char>();
@@ -20,7 +21,7 @@ namespace Week3Opdracht2
             _secretword = secretword;
             foreach (char c in secretword)
             {
-                
+
                 guessedWord += ".";
             }
             Console.WriteLine(guessedWord);
@@ -68,9 +69,9 @@ namespace Week3Opdracht2
             char[] chararr = guessedWord.ToCharArray();
 
 
-            for(int i = 0; i < _secretword.Length; i++)
+            for (int i = 0; i < _secretword.Length; i++)
             {
-                if(_secretword[i] == c)
+                if (_secretword[i] == c)
                 {
                     b = true;
                     chararr[i] = c;
@@ -82,7 +83,7 @@ namespace Week3Opdracht2
 
         public bool GuessedWord()
         {
-            if(_secretword == guessedWord)
+            if (_secretword == guessedWord)
             {
                 return true;
             }
@@ -106,7 +107,7 @@ namespace Week3Opdracht2
             string s = "";
             foreach (char c in filledchars)
             {
-                    s += (c + " ");
+                s += (c + " ");
             }
             Console.WriteLine("Ingevoerde characters: " + s);
         }
@@ -121,5 +122,7 @@ namespace Week3Opdracht2
             }
             return false;
         }
+
+
     }
 }

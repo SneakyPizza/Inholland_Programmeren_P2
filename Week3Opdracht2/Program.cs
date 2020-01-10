@@ -8,7 +8,7 @@ namespace Week3Opdracht2
 {
     class Program
     {
-        private List<string> _wordList = new List<string> { "Test", "Eetlepel", "Programmeren" };
+        private List<string> _wordList = new List<string> { "test", "eetlepel", "programmeren" };
 
         private HangmanGame _hangmangame;
 
